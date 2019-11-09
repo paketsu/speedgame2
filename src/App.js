@@ -2,14 +2,38 @@ import React, { Component } from 'react';
 import './App.css';
 import Circle from './Circle'
 
+const circleData = [
+  {
+    id: 1,
+    color: "yellow"
+  },
+  {
+    id: 2,
+    color: "purple"
+  },
+  {
+    id: 3,
+    color: "blue"
+  },
+  {
+    id: 4,
+    color: "pink"
+  }
+]
+
 class App extends Component {
   constructor() {
     super()
-    this.state= {
-
+    this.state = {
+      circles: circleData,
+      showGameOverBox: false,
+      rightClicks: 0,
+      wrongClcks: "",
+      time: ""
     }
   }
 
+  
   timer = 2000;
 
   getRandomInt = () => {
@@ -17,7 +41,12 @@ class App extends Component {
   }
 
   handleClick = (id) => {
-    console.log(id)
+    console.log(id);
+//    this.setState(prevState => {
+//      return {
+//        rightClicks: prevState.rightClicks + 1
+//      }
+//    })
   }
 
   startGame = () => {
@@ -25,22 +54,28 @@ class App extends Component {
   }
 
   endGame = () => {
-
+    this.setState({
+      showGameOverBox: true
+    })
   }
 
   render() { 
+    const circleComponents = this.state.circles.map(circle => 
+      <Circle key={circle.id} color={circle.color} handleClick={() => this.handleClick(circle.id)}/>)
+    
     return (
       <div className="App">
         <h1>Speedgame 2</h1>
         <div className="circleContainer">
-          <Circle onClick={() => this.handleClick(1)}/>
-          <Circle id="2"/>
-          <Circle id="3"/>
-          <Circle id="4"/>
+          {circleComponents}
         </div>
         <button className="start" onClick={this.startGame}>Start game</button>
         <button className="end" onClick={this.endGame}>End game</button>
+        <div className="gameOverBox">
+
+        </div>  
       </div>
+      
     );
   }
 }

@@ -5,3 +5,19 @@
     border-radius: 50%;
     margin: 10px;
 }
+
+.Circle .pink {
+    background-color: magenta;
+}
+
+.purple {
+    background-color: purple;
+}
+
+.yellow {
+    background-color: yellow;
+}
+
+.blue {
+    background-color: blue;
+}
