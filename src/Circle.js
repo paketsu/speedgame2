@@ -1,10 +1,11 @@
 import React from 'react'
 import './Circle.css'
 
-const Circle = (props) => {
+const Circle = ({color, active, handleClick}) => {
     return (
         <div>
-            <div className={"Circle " + props.color} onClick={props.handleClick}></div>
+            {/*Huom! onClick event listener (joka ei ole props) */}
+            <div className={"Circle " + (active ? "active" : color)} onClick={handleClick}></div>
         </div>
     )
 }

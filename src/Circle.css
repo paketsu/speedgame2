@@ -6,7 +6,7 @@
     margin: 10px;
 }
 
-.Circle .pink {
+.pink {
     background-color: magenta;
 }
 
@@ -20,4 +20,8 @@
 
 .blue {
     background-color: blue;
+}
+
+.active {
+    background-color: black;
 }

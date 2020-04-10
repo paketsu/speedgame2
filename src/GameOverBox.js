@@ -1,10 +1,19 @@
 import React from 'react'
+import './GameOverBox.css'
 
-const GameOverBox = (props) => {
+const GameOverBox = ({rightClicks}) => {
+
+    const closeHandler = () => {
+        window.location.reload()
+    }
+
     return (
-        <div>
-            <h2>Game Over</h2>
-            <p>Your result was {props.this.state.rightClicks}</p>
+        <div className="gameOverBox">
+            <div className="gameOverTexts">
+                <h2>Game Over</h2>
+                <p>Your result was {rightClicks}</p>
+                <button onClick={() => closeHandler()}>Close</button>
+            </div>
         </div>
     )
 }
